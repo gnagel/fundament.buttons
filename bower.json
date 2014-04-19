@@ -1,0 +1,20 @@
+{
+  "name": "fundament.buttons",
+  "version": "0.0.1",
+  "authors": [
+    "felics <fspoettel@gmail.com>"
+  ],
+  "description": "",
+  "main": "scss/fundament-buttons.scss",
+  "keywords": [
+    "scss",
+    "buttons",
+    "fdmt"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/felics/fundament.buttons.git",
+  "ignore": [
+    "node_modules",
+    "test"
+  ]
+}

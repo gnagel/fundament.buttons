@@ -1,0 +1,114 @@
+
+// * Fundament Button Functions
+// * ---------------------
+// * ---------------------
+
+// * fdmt-btn()
+// * Map for settings.
+// * ---------------------
+
+@function fdmt-btn($group, $setting) {
+    @if($group and $setting) {
+        @return map-get(map-get($fdmt-btn, $group), $setting);
+    } @else {
+        @warn "Setting #{$setting} does not exist under #{$group}!";
+        @return false;
+    }
+}
+
+// * fdmt-btn--init()
+// * ---------------------
+
+@mixin fdmt-btn--init() {
+    // * Make a button that inherits the core-properties for each button declared in $fdmt-btn->colors
+    @each $btn in map-get($fdmt-btn, colors) {
+        // * Get the name and the map
+        $btn-name: nth($btn, 1);
+        $btn-val:  nth($btn, 2);
+        // * Set up namespaced buttons
+        #{$fdmt-btn--class-type}#{$fdmt-btn--namespace} {
+            // * Iniate a --modifier-less default class
+            @if ($btn-name == default) {
+                @extend %#{$fdmt-btn--namespace}--core;
+                @include fdmt-btn--color($btn-name, $btn-val);
+            }
+            // * Paint all other buttons as --modifiers
+            @else {
+                &--#{$btn-name} {
+                    @extend %#{$fdmt-btn--namespace}--core;
+                    @include fdmt-btn--color($btn-name, $btn-val);
+                }
+            }
+        }
+    }
+    // * Generate a size-modifier for each $size in $fdmt-btn->sizes
+    @each $size in map-get($fdmt-btn, sizes) {
+        // * Store the size and map in var's
+        $size-name: nth($size, 1);
+        $size-val:  nth($size, 2);
+        #{$fdmt-btn--class-type}#{$fdmt-btn--namespace} {
+            @if(map-get($size-val,default) == true) {
+                font-size: map-get($size-val, font-size);
+            } @else {
+                &--#{$size-name} {
+                    font-size: map-get($size-val, font-size);
+                }
+            }
+        }
+    }
+}
+
+// * fdmt-btn--draw()
+// * ---------------------
+
+@mixin fdmt-btn--color($name, $val) {
+
+    // * Store the mapped values in variables
+    $btn-background: map-get($val, background);
+    $btn-color:      map-get($val, color);
+    $btn-border:     map-get($val, border);
+
+    // * Set up background and text-color if passed in
+    @if (type-of($btn-background) == color) {
+        background: $btn-background;
+    } @else {
+        // * If no background is set, we assume the user wants to use bordered buttons, otherwise, there is no button
+        @extend #{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--bordered;
+    }
+    // * Assign a color if specified, otherwise fall back to standard text-color
+    @if (type-of($btn-color) == color) {
+        color: $btn-color;
+    } @else {
+        color: fdmt-btn(defaults, color);
+    }
+
+    // * Generate a border-color if wished and supplied a valid background-color
+    @if($btn-border == dynamic) {
+        @if(type-of($btn-background) == color) {
+            border-color: call(nth(fdmt-btn(settings, dynamic-border-function),1), $btn-background, nth(fdmt-btn(settings, dynamic-border-function),2));
+        } @else {
+            @warn "You have to supply a valid color to $name to use a dynamic border."
+        }
+    } @else {
+        border-color: fdmt-btn(defaults, border-color);
+    }
+
+    // * Generate :hover & :active if supplied a valid background-color
+    @if(type-of($btn-background) == color) {
+        &:hover,
+        &:focus {
+            background: call(nth(fdmt-btn(settings, hover-function),1), $btn-background, nth(fdmt-btn(settings, hover-function),2));
+        }
+        &:active {
+            background: call(nth(fdmt-btn(settings, active-function),1), $btn-background, nth(fdmt-btn(settings, active-function),2));
+        }
+    } @else {
+        &:hover,
+        &:focus {
+            background: fdmt-btn(defaults, no-background-hover);
+        }
+        &:active {
+            background: fdmt-btn(defaults, no-background-active);
+        }
+    }
+}

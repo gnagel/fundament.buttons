@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/* Fundament Button System
+// * ---------------------
+// * A modular, small and easily configurable SCSS button component.
+// * The lib aims to provide you with an easy way to customize a robust button--core and make generating colored buttons
+// * and size-modifiers a breeze.
+// * MIT LICENSE (c) 2014 Felix Spöttel
+// * ---------------------*/
+.btn, .btn--success, .btn--error, .btn--info, .btn--warning {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: baseline;
+  padding: 0.75em 1em;
+  font-weight: 300;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: .15s all ease-in-out;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  zoom: 1; }
+
+.btn--bordered, .btn--fancy, .btn {
+  border-width: 1px;
+  border-style: solid; }
+.btn--full {
+  display: block; }
+  .btn--full.btn--split {
+    display: flex; }
+.btn--round {
+  border-radius: 0.125em; }
+.btn--fancy {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.7); }
+.btn--split {
+  padding: 0;
+  display: inline-flex;
+  align-items: stretch;
+  text-align: left;
+  justify-content: flex-start; }
+  .btn--split > * {
+    display: inline-block;
+    display: inline-flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75em 1em; }
+  .btn--split__highlight {
+    display: inline-block;
+    display: inline-flex;
+    flex: 0 1 auto;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0 1em; }
+
+.btn {
+  color: #222222;
+  border-color: #888888; }
+  .btn:hover, .btn:focus {
+    background: rgba(255, 255, 255, 0.2); }
+  .btn:active {
+    background: rgba(255, 255, 255, 0.1); }
+
+.btn--success {
+  background: #32db6c;
+  color: #fefefe;
+  border-color: #11632d; }
+  .btn--success:hover, .btn--success:focus {
+    background: #48df7c; }
+  .btn--success:active {
+    background: #24cf5f; }
+
+.btn--error {
+  background: #e34d34;
+  color: #fefefe;
+  border-color: #6f1d0f; }
+  .btn--error:hover, .btn--error:focus {
+    background: #e6614a; }
+  .btn--error:active {
+    background: #df3a1f; }
+
+.btn--info {
+  background: #9cc3e0;
+  color: #fefefe;
+  border-color: #367aad; }
+  .btn--info:hover, .btn--info:focus {
+    background: #afcfe6; }
+  .btn--info:active {
+    background: #89b7da; }
+
+.btn--warning {
+  background: #f1c40f;
+  color: #fefefe;
+  border-color: #614f06; }
+  .btn--warning:hover, .btn--warning:focus {
+    background: #f2ca27; }
+  .btn--warning:active {
+    background: #dab10d; }
+
+.btn {
+  font-size: 100%; }
+
+.btn--small {
+  font-size: 85%; }
+
+.btn--medium {
+  font-size: 100%; }
+
+.btn--large {
+  font-size: 110%; }
+
+.btn--xlarge {
+  font-size: 125%; }

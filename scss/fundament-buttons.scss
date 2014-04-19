@@ -1,0 +1,119 @@
+
+/* Fundament Button System
+// * ---------------------
+// * A modular, small and easily configurable SCSS button component.
+// * The lib aims to provide you with an easy way to customize a robust button--core and make generating colored buttons
+// * and size-modifiers a breeze.
+// * MIT LICENSE (c) 2014 Felix Spöttel
+// * ---------------------*/
+
+$fdmt-btn: (
+
+    // * Core settings
+
+    settings: (
+        // * Namespaces under which the generated classes / silent classes will be accesible
+        namespace: "btn",
+        // * Choose if you want to output real classes or become a silent SCSS Ninja. You can access everything generated
+        // * by this lib via `.btn`(default) or whatever you set that too.
+        silent-classes: false,
+        // * Choose the hue of the background-color on :hover
+        hover-function: lighten 5%,
+        // * Choose the hue of the background-color on :active
+        active-function: darken 5%,
+        // * Choose the hue of the dynamic border on buttons
+        dynamic-border-function: darken 30%
+    ),
+
+    // * Default settings
+
+    defaults: (
+        // * Used by --bordered-modifier
+        border-width: 1px,
+        // * Used by --round-modifier
+        border-radius: .125em,
+        // * Default border color if no dynamic one is set
+        border-color: #888,
+        // * Default button text-color if nothing else is set
+        color: #fefefe,
+        // * Padding - scaling the buttons is managed by changing the font-size, see `sizes`
+        padding: .75em 1em,
+        // * Default font-weight for button text
+        font-weight: 300,
+        // * If no background is set to generate a hover-effect, you can set a default hover color here (e.g. for bored)
+        no-background-hover: rgba(255,255,255,.2),
+        // * If no background is set to generate an active-effect, you can set a default hover color here (e.g. for bored)
+        no-background-active: rgba(255,255,255,.1),
+        // * Background for --split__highlight - item in `split`-buttons
+        split-highlight-background: rgba(0,0,0,.2)
+    ),
+
+    // * Button declarations
+    // * Each of these colors will render as a button that is accesible by --#{$name}
+    // * Each of these buttons can be used without the `btn`class as it inherits from `btn--core`default
+    // * You can set a background, a text-color and choose what border style you want
+    // * border: (static/dynamic) will decide if you want the button to use the default-border-color or generate the
+    // * border-color from the buttons' background.
+    // * NOTE: You need to set a border with --bordered either by extending or putting a class in HTML, by default, only
+    // * border-colors will be generated
+    // * ---------------------
+
+    colors: (
+        default: (
+            color: #222,
+            border: default
+        ),
+        success: (
+            background: #32DB6C,
+            border: dynamic
+        ),
+        error: (
+            background: #E34D34,
+            border: dynamic
+        ),
+        info: (
+            background: #9CC3E0,
+            border: dynamic
+        ),
+        warning: (
+            background: #f1c40f,
+            border: dynamic
+        )
+    ),
+
+    // * Size modifiers
+    // * These will generate size-modifiers that can be used with `btn`or `btn--color`.
+    // * ---------------------
+
+    sizes: (
+        default: (
+            default: true,
+            font-size: 100%
+        ),
+        small: (
+            font-size: 85%
+        ),
+        medium: (
+            font-size: 100%
+        ),
+        large: (
+            font-size: 110%
+        ),
+        xlarge: (
+            font-size: 125%
+        )
+    )
+);
+
+// * Import partials
+
+@import "fundament-buttons/functions";
+@import "fundament-buttons/core";
+@import "fundament-buttons/modifiers";
+
+
+// * Let's make some buttons
+
+@include fdmt-btn--init();
+
+

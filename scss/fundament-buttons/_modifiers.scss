@@ -1,0 +1,54 @@
+
+// * Fundament Button Modifiers
+// * ---------------------
+// * ---------------------
+
+#{$fdmt-btn--class-type}#{$fdmt-btn--namespace} {
+
+    &--bordered {
+        border-width: fdmt-btn(defaults, border-width);
+        border-style: solid;
+    }
+
+    &--full {
+        display: block;
+        &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--split {
+            display: flex;
+        }
+    }
+
+    &--round {
+        border-radius: fdmt-btn(defaults, border-radius);
+    }
+
+
+    &--fancy {
+        @extend #{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--bordered;
+        box-shadow: inset 0 1px 0 0 rgba(255,255,255,.7);
+    }
+
+    &--split {
+        padding: 0;
+        display: inline-flex;
+        align-items: stretch;
+        text-align: left;
+        justify-content: flex-start;
+        > * {
+            display: inline-block;
+            display: inline-flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+            padding: fdmt-btn(defaults, padding);
+        }
+        &__highlight {
+            display: inline-block;
+            display: inline-flex;
+            flex: 0 1 auto;
+            align-items: center;
+            background: fdmt-btn(defaults, split-highlight-background);
+            padding: 0 $fdmt-btn--padding-vertical;
+        }
+    }
+
+}

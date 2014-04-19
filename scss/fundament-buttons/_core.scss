@@ -1,0 +1,57 @@
+
+// * Fundament Button Core
+// * ---------------------
+// * ---------------------
+
+// * $fdmt-btn--class-type
+// * This sets the class-type either to normal or silent classes. (Based on `fdmt-btn(settings, silent-classes)`)
+// * ---------------------
+
+$fdmt-btn--class-type: unquote(".");
+
+@if (fdmt-btn(settings, silent-classes) == true){
+    $fdmt-btn--class-type: unquote("%")!global;
+}
+
+// * $fdmt-btn--namespace
+// * This sets the namespace for btn-classes and modifiers to `fdmt-btn(settings, namespace)`
+// * e.g. if set to "btn", the classes will be `btn`, `btn__#{$fdmt-btn--item}`, `btn--modifier`, `btn__#{$fdmt-btn--item}--modifier`
+// * ---------------------
+
+$fdmt-btn--namespace: fdmt-btn(settings, namespace);
+
+// * $fdmt-padding-vertical
+// * ---------------------
+
+@if(length(fdmt-btn(defaults, padding)) == 1) {
+    $fdmt-btn--padding-vertical: fdmt-btn(defaults, padding)!global;
+    } @else if(length(fdmt-btn(defaults, padding)) >= 2) {
+        $fdmt-btn--padding-vertical: nth(fdmt-btn(defaults, padding), 2)!global;
+    }
+
+// * Set up the core btn
+// @exports %btn or .btn
+// * ---------------------
+
+%#{$fdmt-btn--namespace}--core {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    display: inline-block;
+    vertical-align: baseline;
+    padding: fdmt-btn(defaults, padding);
+    font-weight: fdmt-btn(defaults, font-weight);
+    line-height: normal;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .15s all ease-in-out;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    zoom: 1;
+}
+
