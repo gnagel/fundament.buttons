@@ -6,7 +6,7 @@
 // * and size-modifiers a breeze.
 // * MIT LICENSE (c) 2014 Felix Spöttel
 // * ---------------------*/
-.btn, .btn--success, .btn--error, .btn--info, .btn--warning {
+.btn, .btn--disabled, .btn:disabled, .btn[disabled="disabled"], .btn--success, .btn--error, .btn--info, .btn--warning {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -20,7 +20,6 @@
   white-space: nowrap;
   cursor: pointer;
   transition: .15s all ease-in-out;
-  -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -34,7 +33,7 @@
   display: block; }
   .btn--full.btn--split {
     display: -webkit-flex;
-    display: mx-flexbox;
+    display: ms-flexbox;
     display: flex; }
 .btn--round {
   border-radius: 0.125em; }
@@ -94,6 +93,15 @@
     background: rgba(255, 255, 255, 0.2); }
   .btn:active {
     background: rgba(255, 255, 255, 0.1); }
+
+.btn--disabled, .btn:disabled, .btn[disabled="disabled"] {
+  background: #95a5a6;
+  color: #2c3e50;
+  border-color: #4a5758; }
+  .btn--disabled:hover, .btn--disabled:focus, .btn:disabled:hover, .btn:disabled:focus, .btn[disabled="disabled"]:hover, .btn[disabled="disabled"]:focus {
+    background: #a3b1b2; }
+  .btn--disabled:active, .btn:disabled:active, .btn[disabled="disabled"]:active {
+    background: #87999a; }
 
 .btn--success {
   background: #32db6c;

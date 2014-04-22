@@ -50,8 +50,9 @@ $fdmt-btn: (
 
     // * Button declarations
     // * Each of these colors will render as a button that is accesible by --#{$name}
-    // * Each of these buttons can be used without the `btn`class as it inherits from `btn--core`default
+    // * Each of these buttons can be used without the `btn`-class as it inherits from `btn--core`default
     // * You can set a background, a text-color and choose what border style you want
+    // * Default and disabled should not be removed or renamed!
     // * border: (static/dynamic) will decide if you want the button to use the default-border-color or generate the
     // * border-color from the buttons' background.
     // * NOTE: You need to set a border with --bordered either by extending or putting a class in HTML, by default, only
@@ -62,6 +63,11 @@ $fdmt-btn: (
         default: (
             color: #222,
             border: default
+        ),
+        disabled: (
+            background: #95a5a6,
+            color: #2c3e50,
+            border: dynamic
         ),
         success: (
             background: #32DB6C,

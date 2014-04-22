@@ -32,6 +32,14 @@
                 @extend %#{$fdmt-btn--namespace}--core;
                 @include fdmt-btn--color($btn-name, $btn-val);
             }
+            @else if ($btn-name == disabled) {
+                &--#{$btn-name},
+                &:disabled,
+                &[disabled="disabled"] {
+                    @extend %#{$fdmt-btn--namespace}--core;
+                    @include fdmt-btn--color($btn-name, $btn-val);
+                }
+            }
             // * Paint all other buttons as --modifiers
             @else {
                 &--#{$btn-name} {
