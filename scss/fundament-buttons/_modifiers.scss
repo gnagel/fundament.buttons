@@ -21,6 +21,19 @@
         border-radius: fdmt-btn(defaults, border-radius);
     }
 
+    &--pill {
+        border-radius: 999px;
+        &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--split {
+            > * {
+                &:first-child {
+                    border-radius: 999px 0 0 999px;
+                }
+                &:last-child {
+                    border-radius: 0 999px 999px 0;
+                }
+            }
+        }
+    }
 
     &--fancy {
         @extend #{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--bordered;
