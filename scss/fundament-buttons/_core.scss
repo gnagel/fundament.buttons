@@ -47,11 +47,9 @@ $fdmt-btn--namespace: fdmt-btn(settings, namespace);
     white-space: nowrap;
     cursor: pointer;
     transition: .15s all ease-in-out;
-    -webkit-user-drag: none;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
     user-select: none;
     zoom: 1;
 }
-
