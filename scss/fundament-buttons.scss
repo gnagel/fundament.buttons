@@ -22,7 +22,7 @@ $fdmt-btn: (
         // * Choose the hue of the background-color on :active
         active-function: darken 5%,
         // * Choose the hue of the dynamic border on buttons
-        dynamic-border-function: darken 30%
+        dynamic-border-function: darken 20%
     ),
 
     // * Default settings
@@ -31,7 +31,7 @@ $fdmt-btn: (
         // * Used by --bordered-modifier
         border-width: 1px,
         // * Used by --round-modifier
-        border-radius: .125em,
+        border-radius: .25em,
         // * Default border color if no dynamic one is set
         border-color: #888,
         // * Default button text-color if nothing else is set
@@ -83,6 +83,7 @@ $fdmt-btn: (
         ),
         warning: (
             background: #f1c40f,
+            color: #222,
             border: dynamic
         )
     ),

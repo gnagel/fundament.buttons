@@ -21,6 +21,16 @@
 
     &--round {
         border-radius: fdmt-btn(defaults, border-radius);
+        &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--split {
+            > * {
+                &:first-child {
+                    border-radius: fdmt-btn(defaults, border-radius) 0 0 fdmt-btn(defaults, border-radius);
+                }
+                &:last-child {
+                    border-radius: 0 fdmt-btn(defaults, border-radius) fdmt-btn(defaults, border-radius) 0;
+                }
+            }
+        }
     }
 
     &--pill {
