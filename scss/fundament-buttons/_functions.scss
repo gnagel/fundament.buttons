@@ -103,8 +103,16 @@
                 background: $btn-background;
             }
         }
-        &:active {
-            background: call(nth(fdmt-btn(settings, active-function),1), $btn-background, nth(fdmt-btn(settings, active-function),2));
+        &:active,
+        &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--active {
+            @if(fdmt-btn(settings, active-function) != 0 and fdmt-btn(settings, active-function) != none) {
+                background: call(nth(fdmt-btn(settings, active-function),1), $btn-background, nth(fdmt-btn(settings, active-function),2));
+            } @else {
+                background: $btn-background;
+            }
+            @extend #{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--bordered;
+            border-color: call(nth(fdmt-btn(settings, dynamic-border-function),1), $btn-background, nth(fdmt-btn(settings, dynamic-border-function),2) +5%);
+            box-shadow: inset 0px 2px 4px 2px rgba(0,0,0,.15);
         }
     } @else {
         &:hover,
@@ -115,8 +123,11 @@
                 background: none;
             }
         }
-        &:active {
+
+        &:active,
+        &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--active {
             background: fdmt-btn(defaults, no-background-active);
+            box-shadow: inset 0px 2px 4px 2px rgba(0,0,0,.15);
         }
     }
 }
