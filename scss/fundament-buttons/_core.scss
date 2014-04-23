@@ -52,4 +52,9 @@ $fdmt-btn--namespace: fdmt-btn(settings, namespace);
         -ms-user-select: none;
     user-select: none;
     zoom: 1;
+    &:disabled {
+        cursor: not-allowed;
+        opacity: .5;
+        box-shadow: none !important;
+    }
 }

@@ -32,14 +32,6 @@
                 @extend %#{$fdmt-btn--namespace}--core;
                 @include fdmt-btn--color($btn-name, $btn-val);
             }
-            @else if ($btn-name == disabled) {
-                &--#{$btn-name},
-                &:disabled,
-                &[disabled="disabled"] {
-                    @extend %#{$fdmt-btn--namespace}--core;
-                    @include fdmt-btn--color($btn-name, $btn-val);
-                }
-            }
             // * Paint all other buttons as --modifiers
             @else {
                 &--#{$btn-name} {
@@ -106,6 +98,10 @@
         &:hover,
         &:focus {
             background: call(nth(fdmt-btn(settings, hover-function),1), $btn-background, nth(fdmt-btn(settings, hover-function),2));
+            &:disabled,
+            &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--disabled {
+                background: $btn-background;
+            }
         }
         &:active {
             background: call(nth(fdmt-btn(settings, active-function),1), $btn-background, nth(fdmt-btn(settings, active-function),2));
@@ -114,6 +110,10 @@
         &:hover,
         &:focus {
             background: fdmt-btn(defaults, no-background-hover);
+            &:disabled,
+            &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--disabled {
+                background: none;
+            }
         }
         &:active {
             background: fdmt-btn(defaults, no-background-active);

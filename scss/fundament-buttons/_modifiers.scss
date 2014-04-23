@@ -96,4 +96,7 @@
         }
     }
 
+    &--disabled {
+        @extend %#{$fdmt-btn--namespace}--core:disabled;
+    }
 }
