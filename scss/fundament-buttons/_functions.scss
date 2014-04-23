@@ -34,7 +34,7 @@
             }
             // * Paint all other buttons as --modifiers
             @else {
-                &--#{$btn-name} {
+                &-#{$btn-name} {
                     @extend %#{$fdmt-btn--namespace}--core;
                     @include fdmt-btn--color($btn-name, $btn-val);
                 }
