@@ -97,7 +97,9 @@
     @if(type-of($btn-background) == color) {
         &:hover,
         &:focus {
-            background: call(nth(fdmt-btn(settings, hover-function),1), $btn-background, nth(fdmt-btn(settings, hover-function),2));
+            @if(fdmt-btn(settings, hover-function) != 0 and fdmt-btn(settings, hover-function) != none) {
+                background: call(nth(fdmt-btn(settings, hover-function),1), $btn-background, nth(fdmt-btn(settings, hover-function),2));
+            }
             &:disabled,
             &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--disabled {
                 background: $btn-background;
