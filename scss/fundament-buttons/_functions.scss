@@ -32,7 +32,7 @@
                 @extend %#{$fdmt-btn--namespace}--core;
                 @include fdmt-btn--color($btn-name, $btn-val);
             }
-            // * Paint all other buttons as --modifiers
+            // * Paint all other buttons as -subs
             @else {
                 &-#{$btn-name} {
                     @extend %#{$fdmt-btn--namespace}--core;
@@ -114,11 +114,12 @@
             }
             @extend #{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--bordered;
             border-color: call(nth(fdmt-btn(settings, dynamic-border-function),1), $btn-background, nth(fdmt-btn(settings, dynamic-border-function),2) +5%);
-            box-shadow: inset 0px 2px 4px 2px rgba(0,0,0,.15);
+            box-shadow: unquote(fdmt-btn(defaults, active-shadow));
         }
     } @else {
         &:hover,
-        &:focus {
+        &:focus,
+        &--focus {
             background: fdmt-btn(defaults, no-background-hover);
             &:disabled,
             &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--disabled {
@@ -129,7 +130,7 @@
         &:active,
         &#{$fdmt-btn--class-type}#{$fdmt-btn--namespace}--active {
             background: fdmt-btn(defaults, no-background-active);
-            box-shadow: inset 0px 2px 4px 2px rgba(0,0,0,.15);
+            box-shadow: unquote(fdmt-btn(defaults, active-shadow));
         }
     }
 }

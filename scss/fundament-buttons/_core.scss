@@ -34,9 +34,7 @@ $fdmt-btn--namespace: fdmt-btn(settings, namespace);
 // * ---------------------
 
 %#{$fdmt-btn--namespace}--core {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     display: inline-block;
     vertical-align: baseline;
     margin: 0;
@@ -51,9 +49,6 @@ $fdmt-btn--namespace: fdmt-btn(settings, namespace);
     overflow: visible;
     cursor: pointer;
     transition: .15s all ease-in-out;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
     user-select: none;
     zoom: 1;
     &:disabled {
