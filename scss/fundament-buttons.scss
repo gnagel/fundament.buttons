@@ -2,7 +2,7 @@
 /* Fundament Button System
 // * ---------------------
 // * A modular, small and easily configurable SCSS button component.
-// * The lib aims to provide you with an easy way to customize a robust button--core and make generating colored buttons
+// * This library aims to provide you with an easy way to customize a robust button--core and make generating colored buttons
 // * and size-modifiers a breeze.
 // * MIT LICENSE (c) 2014 Felix Spöttel
 // * ---------------------*/
@@ -28,9 +28,9 @@ $fdmt-btn: (
     // * Default settings
 
     defaults: (
-        // * Used by --bordered-modifier
+        // * Used by --bordered
         border-width: 1px,
-        // * Used by --round-modifier
+        // * Used by --round
         border-radius: .25em,
         // * Default border color if no dynamic one is set
         border-color: #888,
@@ -44,12 +44,14 @@ $fdmt-btn: (
         no-background-hover: rgba(255,255,255,.2),
         // * If no background is set to generate an active-effect, you can set a default hover color here (e.g. for bored)
         no-background-active: rgba(255,255,255,.1),
+        // * Inset Shadow for active elements
+        active-shadow: "inset 0px 2px 4px 2px rgba(0,0,0,.15)",
         // * Background for --split__highlight - item in `split`-buttons
         split-highlight-background: rgba(0,0,0,.2)
     ),
 
     // * Button declarations
-    // * Each of these colors will render as a button that is accesible by --#{$name}
+    // * Each of these colors will render as a button that is accesible by -#{$name}
     // * Each of these buttons can be used without the `btn`-class as it inherits from `btn--core`default
     // * You can set a background, a text-color and choose what border style you want
     // * Default and disabled should not be removed or renamed!
